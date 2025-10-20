@@ -1,4 +1,6 @@
 #include <Arduino.h>
+#include <motors.h>
+#include <sensors.h>
 
 // put function declarations here:
 int myFunction(int, int);
