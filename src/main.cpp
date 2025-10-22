@@ -1,20 +1,20 @@
-#include <Arduino.h>
-#include <motors.h>
-#include <sensors.h>
+#include <header.h>
+
 
 // put function declarations here:
-int myFunction(int, int);
 
 void setup() {
   // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  // Initialize serial for debugging
+  Serial.begin(9600);
+  // Initialize sensors (defined in sensors.cpp)
+  setupSensors();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  // Example: read sensors or perform logic here. For now, print a heartbeat.
+  
 }
 
 // put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
