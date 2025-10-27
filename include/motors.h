@@ -10,6 +10,6 @@
 
 // Function declarations
 // Add your function prototypes here
-void setupSensors();
+
 
 #endif // MOTORS_H

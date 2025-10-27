@@ -19,7 +19,7 @@
 
 // Function declarations
 void setupSensors();
-void readIRSensors(int &sensor1, int &sensor2, int &sensor3, int &sensor4);
+void readIRSensors(int &sensor1, int &sensor2, int &sensor3);
 void readBlackWhiteSensors(int &sensor1, int &sensor2, int &sensor3, int &sensor4);
 
 #endif // SENSORS_H
