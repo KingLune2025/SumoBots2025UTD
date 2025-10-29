@@ -3,13 +3,9 @@
 
 // Include necessary libraries
 #include <Arduino.h>
-#include "sensors.h"
-#include "motors.h"
-
-// Constants and pin definitions
-// Add your pin definitions here
-
-// Function declarations
-// Add your function prototypes here
+#include "motor.h"
+#include "BorderSensor.h"
+#include "IRDistanceSensor.h"
+#include "BoardConfig.h"
 
 #endif // HEADER_H
