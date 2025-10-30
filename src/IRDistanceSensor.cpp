@@ -1,12 +1,11 @@
 #include <header.h>
 
-int IRSensorLeft, IRSensorMiddle, IRSensorRight, IRSensorFlank;
+int IRSensorLeft, IRSensorMiddle, IRSensorRight;
 
 void readIRDistanceSensors() {
     IRSensorLeft = analogRead(PIN_IR_DISTANCE_SENSOR_LEFT);
     IRSensorMiddle = analogRead(PIN_IR_DISTANCE_SENSOR_MIDDLE);
     IRSensorRight = analogRead(PIN_IR_DISTANCE_SENSOR_RIGHT);
-    IRSensorFlank = analogRead(PIN_IR_DISTANCE_SENSOR_FLANK);
 }
 
 int getDistance(int IRDistanceSensor) {
