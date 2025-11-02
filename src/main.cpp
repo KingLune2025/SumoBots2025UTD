@@ -6,6 +6,7 @@ void setup() {
 }
 
 void loop() {
-  getDistance(PIN_IR_DISTANCE_SENSOR_MIDDLE);
-  getBorder(PIN_BORDER_SENSOR_R1, PIN_BORDER_SENSOR_R2, PIN_BORDER_SENSOR_L1, PIN_BORDER_SENSOR_L2);
+  distSensorLeft_cm = getDistance_A21(adcToVoltage(getSampleADC(PIN_IR_DISTANCE_SENSOR_LEFT)));
+  distSensorMiddle_cm = getDistance_A41(adcToVoltage(getSampleADC(PIN_IR_DISTANCE_SENSOR_MIDDLE)));
+  distSensorRight_cm = getDistance_A21(adcToVoltage(getSampleADC(PIN_IR_DISTANCE_SENSOR_RIGHT)));
 }

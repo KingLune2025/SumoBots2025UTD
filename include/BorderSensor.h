@@ -1,5 +1,5 @@
-#ifndef BORDERSENSOR_H
-#define BORDERSENSOR_H
+#ifndef BORDER_SENSOR_H
+#define BORDER_SENSOR_H
 
 // Include necessary libraries
 #include <Arduino.h>
@@ -10,4 +10,4 @@
 void readBorderSensors();
 int getBorder(int BorderSensorR1, int BorderSensorR2, int BorderSensorL1, int BorderSensorL2);
 
-#endif // BORDERSENSOR_H
+#endif // BORDER_SENSOR_H
