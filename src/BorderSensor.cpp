@@ -12,7 +12,51 @@ void readBorderSensors() {
 int getBorder(int BorderSensorR1, int BorderSensorR2, int BorderSensorL1, int BorderSensorL2) {
     int border = 0;
 
-    /** We will develop a Case function here to check all Border Sensors
+    if (BorderSensorL2 == 1 && BorderSensorR2 == 1) {
+        // back on line
+        //go forward();
+        border = 1;
+    }
+    else if (BorderSensorL1 == 1 && BorderSensorR1 == 1) {
+        //front on line
+        //go backward();
+        border = 2;
+    }
+    else if (BorderSensorL1 == 1 && BorderSensorL2 == 1) {
+        //left both on line
+        //turn right and forward();
+        border = 3;
+    }
+    else if (BorderSensorR1 == 1 && BorderSensorR2 == 1) {
+        //right both on line
+        //turn left and forward();
+        border = 4;
+    }
+    else if (BorderSensorL1 == 1) {
+        //left front on line
+        //turn right and backward();
+        border = 5;
+    }
+    else if (BorderSensorR1 == 1) {
+        //right front on line
+        //turn left() and backward();
+        border = 6;
+    }
+    else if (BorderSensorL2 == 1) {
+        //left back on line
+        //turn right() and forward();
+        border = 3;
+    }
+    else if (BorderSensorR2 == 1) {
+        //right back on line
+        //turn left() and forward();
+        border = 4;
+    }
+    else {
+        //no border detected
+        border = 0;
+    }
+      /** We will develop a Case function here to check all Border Sensors
         and if found returns which border sensor was detected.
         Will also need to know what to do if 2 of them were detected. **/
 
