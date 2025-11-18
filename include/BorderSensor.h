@@ -4,6 +4,9 @@
 // Include necessary libraries
 #include <Arduino.h>
 
+//Global Variables
+int BorderSensorR1, BorderSensorR2, BorderSensorL1, BorderSensorL2;
+
 //Constants
 
 // Function declarations
