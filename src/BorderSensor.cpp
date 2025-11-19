@@ -3,35 +3,34 @@
 int BorderSensorR1, BorderSensorR2, BorderSensorL1, BorderSensorL2;
 
 void readBorderSensors() {
-    BorderSensorR1 = analogRead(PIN_BORDER_SENSOR_R1);
-    BorderSensorR2 = analogRead(PIN_BORDER_SENSOR_R2);
-    BorderSensorL1 = analogRead(PIN_BORDER_SENSOR_L1);
-    BorderSensorL2 = analogRead(PIN_BORDER_SENSOR_L2);
+    BorderSensorRight = analogRead(PIN_BORDER_SENSOR_RIGHT);
+    BorderSensorLeft = analogRead(PIN_BORDER_SENSOR_LEFT);
+    BorderSensorBack = analogRead(PIN_BORDER_SENSOR_BACK);
 }
 
-int getBorder(int BorderSensorR1, int BorderSensorR2, int BorderSensorL1, int BorderSensorL2) {
+int getBorder(int BorderSensorRight, int BorderSensorLeft, int BorderSensorBack) {
     int border = 0;
-    if (BorderSensorL1 == 1 && BorderSensorR1 == 1) {
+    if (BorderSensorLeft == 1 && BorderSensorRight == 1) {
         border = 1; // front on line
         //go backward();
     }
-    else if (BorderSensorR1 == 1 && BorderSensorB == 1) {
+    else if (BorderSensorRight == 1 && BorderSensorBack == 1) {
         border = 2; // right back on line
         //turn left and forward();
     }
-    else if (BorderSensorL1 == 1 && BorderSensorB == 1) {
+    else if (BorderSensorLeft == 1 && BorderSensorBack == 1) {
         border = 3; // left back on line
         //turn right and forward();
     }
-    else if(BorderSensorB == 1) {
+    else if(BorderSensorBack == 1) {
         border = 2; // back on line
         //go forward();
     }
-    else if (BorderSensorL1 == 1) {
+    else if (BorderSensorLeft == 1) {
         border = 3; // left side on line
         //turn right and forward();
     }
-    else if (BorderSensorR1 == 1) {
+    else if (BorderSensorRight == 1) {
         border = 4; // right side on line
         //turn left and forward();
     }
