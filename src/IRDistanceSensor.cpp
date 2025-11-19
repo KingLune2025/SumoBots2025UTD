@@ -15,16 +15,20 @@ const int adc_A21[A21_TABLE_SIZE] = { 2800, 2100, 1500, 1000, 800, 650, 500 };
 const int dist_A21[A21_TABLE_SIZE] = { 10, 15, 20, 30, 40, 60, 80 };
 
 float distSensorLeft_cm, distSensorMiddle_cm, distSensorRight_cm;
-int IRSensorLeft, IRSensorMiddle, IRSensorRight;
+int IRSensorLeft, IRSensorMiddleLeft, IRSensorMiddleRight, IRSensorRight;
 
 void readIRDistanceSensors() {
     // Read and convert Left sensor (A21 10-80cm)
     int adcLeft = getSampleADC(PIN_IR_DISTANCE_SENSOR_LEFT);
     distSensorLeft_cm = getDistance_A21(adcLeft);
 
-    // Read and convert Middle sensor (A41 4-30cm)
-    int adcMiddle = getSampleADC(PIN_IR_DISTANCE_SENSOR_MIDDLE);
-    distSensorMiddle_cm = getDistance_A41(adcMiddle);
+    // Read and convert Middle Left sensor (A41 4-30cm)
+    int adcMiddleLeft = getSampleADC(PIN_IR_DISTANCE_SENSOR_MIDDLELEFT);
+    distSensorMiddle_cm = getDistance_A41(adcMiddleLeft);
+
+    // Read and convert Middle Right sensor (A41 4-30cm)
+    int adcMiddleRight = getSampleADC(PIN_IR_DISTANCE_SENSOR_MIDDLERIGHT);
+    distSensorMiddle_cm = getDistance_A41(adcMiddleRight);
 
     // Read and convert Right sensor (A21 10-80cm)
     int adcRight = getSampleADC(PIN_IR_DISTANCE_SENSOR_RIGHT);

@@ -6,7 +6,8 @@
 
 //Global Variables
 extern float distSensorLeft_cm;
-extern float distSensorMiddle_cm;
+extern float distSensorMiddleLeft_cm;
+extern float distSensorMiddleRight_cm;
 extern float distSensorRight_cm;
     
 //Constants
