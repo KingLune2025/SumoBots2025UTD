@@ -11,7 +11,7 @@ void setup() {
 
 void loop() {
 getBorder(BorderSensorR1, BorderSensorR2, BorderSensorL1, BorderSensorL2);  
-locateTarget(distSensorLeft_cm, distSensorMiddle_cm, distSensorRight_cm);
+
   readBorderSensors();
   distSensorLeft_cm = getDistance_A21(adcToVoltage(getSampleADC(PIN_IR_DISTANCE_SENSOR_LEFT)));
   distSensorMiddle_cm = getDistance_A41(adcToVoltage(getSampleADC(PIN_IR_DISTANCE_SENSOR_MIDDLE)));
