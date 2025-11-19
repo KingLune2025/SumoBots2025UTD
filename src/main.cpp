@@ -1,6 +1,7 @@
 #include <header.h>
 
-void setup() {
+void setup()
+{
   // Initialize serial for debugging
   Serial.begin(9600);
   readBorderSensors();
@@ -9,21 +10,28 @@ void setup() {
   distSensorRight_cm = getDistance_A21(adcToVoltage(getSampleADC(PIN_IR_DISTANCE_SENSOR_RIGHT)));
 }
 
-void loop() {
-getBorder(BorderSensorR1, BorderSensorR2, BorderSensorL1, BorderSensorL2);  
-
-  readBorderSensors();
+void loop()
+{
+  if (getBorder(PIN_BORDER_SENSOR_RIGHT, PIN_BORDER_SENSOR_LEFT, PIN_BORDER_SENSOR_BACK) != 0)
+  {
+    // interrupt behavior to avoid border
+  }
+  else
+  {
+    locateTarget(distSensorLeft_cm, distSensorMiddle_cm, distSensorRight_cm);
+  }
   distSensorLeft_cm = getDistance_A21(adcToVoltage(getSampleADC(PIN_IR_DISTANCE_SENSOR_LEFT)));
   distSensorMiddle_cm = getDistance_A41(adcToVoltage(getSampleADC(PIN_IR_DISTANCE_SENSOR_MIDDLE)));
   distSensorRight_cm = getDistance_A21(adcToVoltage(getSampleADC(PIN_IR_DISTANCE_SENSOR_RIGHT)));
   setMotorSpeeds(leftMotorSpeed, rightMotorSpeed);
 }
 
-
-void locateTarget(int distSensorLeft_cm, int distSensorMiddle_cm, int distSensorRight_cm) {
-  if (distSensorLeft_cm == 0 && distSensorMiddle_cm == 0 && distSensorRight_cm == 0) {
+void locateTarget(int distSensorLeft_cm, int distSensorMiddle_cm, int distSensorRight_cm)
+{
+  if (distSensorLeft_cm == 0 && distSensorMiddle_cm == 0 && distSensorRight_cm == 0)
+  {
     // No target detected, stop or search
     leftMotorSpeed = -1;
     rightMotorSpeed = 1;
-  } 
+  }
 }
