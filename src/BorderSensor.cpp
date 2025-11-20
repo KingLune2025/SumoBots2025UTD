@@ -23,16 +23,16 @@ int getBorder(int BorderSensorRight, int BorderSensorLeft, int BorderSensorBack)
         //turn right and forward();
     }
     else if(BorderSensorBack == 1) {
-        border = 2; // back on line
+        border = 4; // back on line
         //go forward();
+    }
+    else if (BorderSensorRight == 1) {
+        border = 2; // right side on line
+        //turn left and forward();
     }
     else if (BorderSensorLeft == 1) {
         border = 3; // left side on line
         //turn right and forward();
-    }
-    else if (BorderSensorRight == 1) {
-        border = 4; // right side on line
-        //turn left and forward();
     }
     else {
         border = 0; // no border detected

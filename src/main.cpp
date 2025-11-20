@@ -13,7 +13,8 @@ void setup()
 
 void loop()
 {
-  if (getBorder(PIN_BORDER_SENSOR_RIGHT, PIN_BORDER_SENSOR_LEFT, PIN_BORDER_SENSOR_BACK) != 0)
+  int borderStatus = getBorder(PIN_BORDER_SENSOR_RIGHT, PIN_BORDER_SENSOR_LEFT, PIN_BORDER_SENSOR_BACK);
+  if (borderStatus != 0)
   {
     // interrupt behavior to avoid border
   }
@@ -25,7 +26,6 @@ void loop()
   distSensorMiddleLeft_cm = getDistance_A41(adcToVoltage(getSampleADC(PIN_IR_DISTANCE_SENSOR_MIDDLELEFT)));
   distSensorMiddleRight_cm = getDistance_A41(adcToVoltage(getSampleADC(PIN_IR_DISTANCE_SENSOR_MIDDLERIGHT)));
   distSensorRight_cm = getDistance_A21(adcToVoltage(getSampleADC(PIN_IR_DISTANCE_SENSOR_RIGHT)));
-  setMotorSpeeds(leftMotorSpeed, rightMotorSpeed);
 }
 
 void locateTarget(int distSensorLeft_cm, int distSensorMiddleLeft_cm, int distSensorMiddleRight_cm, int distSensorRight_cm)
@@ -34,6 +34,30 @@ void locateTarget(int distSensorLeft_cm, int distSensorMiddleLeft_cm, int distSe
   {
     // No target detected, stop or search
     leftMotorSpeed = -1;
+    rightMotorSpeed = 1;
+  }
+}
+
+void runFromBorder(int borderStatus)
+{
+  if (borderStatus == 1) // front on line
+  {
+    leftMotorSpeed = -1;
+    rightMotorSpeed = -1;
+  }
+  else if (borderStatus == 2) // right back on line
+  {
+    leftMotorSpeed = 0.5;
+    rightMotorSpeed = 1;
+  }
+  else if (borderStatus == 3) // left back on line
+  {
+    leftMotorSpeed = 1;
+    rightMotorSpeed = 0.5;
+  }
+  else if (borderStatus == 4) //back on line
+  {
+    leftMotorSpeed = 1;
     rightMotorSpeed = 1;
   }
 }
