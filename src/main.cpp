@@ -33,8 +33,7 @@ void locateTarget(int distSensorLeft_cm, int distSensorMiddleLeft_cm, int distSe
   if (distSensorLeft_cm == 0 && distSensorMiddleLeft_cm == 0 && distSensorMiddleRight_cm == 0 && distSensorRight_cm == 0)
   {
     // No target detected, stop or search
-    leftMotorSpeed = -1;
-    rightMotorSpeed = 1;
+    setMotorSpeeds(-1, 1);
   }
 }
 
@@ -42,22 +41,18 @@ void runFromBorder(int borderStatus)
 {
   if (borderStatus == 1) // front on line
   {
-    leftMotorSpeed = -1;
-    rightMotorSpeed = -1;
+    setMotorSpeeds(-1, -1);
   }
   else if (borderStatus == 2) // right back on line
   {
-    leftMotorSpeed = 0.5;
-    rightMotorSpeed = 1;
+    setMotorSpeeds(0.5, 1);
   }
   else if (borderStatus == 3) // left back on line
   {
-    leftMotorSpeed = 1;
-    rightMotorSpeed = 0.5;
+    setMotorSpeeds(1, 0.5);
   }
   else if (borderStatus == 4) //back on line
   {
-    leftMotorSpeed = 1;
-    rightMotorSpeed = 1;
+    setMotorSpeeds(1, 1);
   }
 }
